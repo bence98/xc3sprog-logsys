@@ -213,7 +213,7 @@ void ProgAlgXC3S::array_program(BitFile &file)
   jtag->shiftIR(JPROGRAM);
   do
     jtag->shiftIR(CFG_IN, buf);
-  while (! (buf[0] & 0x10)); /* wait until configuration cleared */
+  while (! (buf[0] & 0x10)&&0); /* wait until configuration cleared */
 
   /* As ISC_DNA only works on a unconfigured device, see AR #29977*/
   switch(family)
