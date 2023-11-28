@@ -100,7 +100,7 @@ if("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
 else("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
    pkg_check_modules(LIBUSB_COMPAT REQUIRED libusb)
    include_directories(${LIBUSB_INCLUDE_DIRS})
-   set(CONDITIONAL_LIBS ${CONDITIONAL_LIBS} usb usb-1.0)
+   set(CONDITIONAL_LIBS ${CONDITIONAL_LIBS} usb usb-1.0 logsys-drv)
 
 endif("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
 
@@ -140,6 +140,7 @@ add_library(xc3sproglib  STATIC ioftdi.cpp iofx2.cpp
 			progalgavr.cpp progalgxc2c.cpp  mapfile_xc2c.cpp
 			ioxpc.cpp progalgspiflash.cpp bitrev.cpp
                         cabledb.cpp pdioverjtag.cpp xmega_pdi_nvm.cpp
+                        iologsys.cpp
                         ${CONDITIONAL_FILES} devices.h cables.h)
 
 add_executable(xc2c_warp xc2c_warp.cpp)
