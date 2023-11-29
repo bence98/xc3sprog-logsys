@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA */
 #include "iobase.h"
 #include "cabledb.h"
 
-#define TX_BUF (128)
+#define LOGSYS_TX_BUF (128)
 
 class IOLogsys : public IOBase
 {
@@ -43,7 +43,7 @@ class IOLogsys : public IOBase
 
  private:
   libusb_device_handle* logsys_dev;
-  unsigned char buf[TX_BUF];
+  unsigned char buf[LOGSYS_TX_BUF];
   int buf_ptr;
 };
 

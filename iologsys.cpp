@@ -58,7 +58,7 @@ IOLogsys::~IOLogsys(){
 void IOLogsys::txrx_block(const unsigned char *tdi, unsigned char *tdo, int length, bool last){
 	int base_buf_ptr=buf_ptr, new_buf_ptr;
 
-	while(length!=0&&buf_ptr<sizeof(buf)){
+	while(length!=0&&buf_ptr<sizeof(buf)-1){
 		if(length<8){
 			buf[buf_ptr++]=(char)(length-1);
 			length=0;
@@ -90,7 +90,7 @@ void IOLogsys::txrx_block(const unsigned char *tdi, unsigned char *tdo, int leng
 }
 
 void IOLogsys::tx_tms(unsigned char *pat, int length, int force){
-	while(length!=0&&buf_ptr<sizeof(buf)){
+	while(length!=0&&buf_ptr<sizeof(buf)-1){
 		if(length<8){
 			buf[buf_ptr++]=0x80|(char)(length-1);
 			length=0;
